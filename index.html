@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeChef Stats</title>
+</head>
+<body>
+    <h1>CodeChef Statistics</h1>
+    <p>Problems Solved: <span id="problems-solved"></span></p>
+    <p>Contests Joined: <span id="contests-joined"></span></p>
+
+    <script>
+        async function fetchCodeChefData() {
+            try {
+                const response = await fetch(`http://localhost:3000/codechef`);
+                // console.log(response)
+                const data = await response.json();
+                // console.log(data);
+                document.getElementById('problems-solved').innerText = data.ratings;
+                document.getElementById('contests-joined').innerText = data.contestsJoined;
+            } catch (error) {
+                console.error('Error fetching CodeChef data:', error);
+            }
+        }
+
+        // Replace 'your_codechef_username' with your actual CodeChef username
+        fetchCodeChefData();
+    </script>
+</body>
+</html>
