@@ -7,8 +7,8 @@ const cors = require('cors')
 const app = express();
 app.use(cors())
 app.get('/codechef', (req, res) => {
-  const username = 'im_soorajkumar';
-  const password = 'Maa@papa123';
+  const username = 'YOUR_NAME';
+  const password = 'YOUR_PASSWORD';
 
   axios.post('https://www.codechef.com/login', {
     name: username,
